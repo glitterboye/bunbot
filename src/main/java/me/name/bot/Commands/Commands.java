@@ -1,7 +1,8 @@
-package me.name.bot;
+package me.name.bot.Commands;
 
 import java.util.Random;
 
+import me.name.bot.Bun;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -10,7 +11,8 @@ public class Commands extends ListenerAdapter {
 
     private EmbedBuilder help_embed;
     private final String desc = "hello! i am Bun bot, a bot created by ralf\n\nralf is working on implementing my features right now. he'll be updating this message as more and more features get created!",
-            list_of_commands = "!greet !weather !roll ... ", profile = "https://i.imgur.com/5bQQPis.jpg";
+            list_of_commands = "!greet !weather !roll !clear !prefix !userinfo ... ",
+            profile = "https://i.imgur.com/5bQQPis.jpg";
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {

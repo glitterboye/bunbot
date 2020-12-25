@@ -1,4 +1,16 @@
+me/name/bot/Commands/Commands2.java
+ me.name.bot.Commands.Commands2
+me/name/bot/Commands/test.java
+ me.name.bot.Commands.test
+me/name/bot/Commands/Prefix.java
+ me.name.bot.Commands.Prefix
 me/name/bot/Bun.java
  me.name.bot.Bun
-me/name/bot/Commands.java
- me.name.bot.Commands
+me/name/bot/Commands/UserInfo.java
+ me.name.bot.Commands.UserInfo
+me/name/bot/Commands/Math.java
+ me.name.bot.Commands.Math
+me/name/bot/Commands/Commands.java
+ me.name.bot.Commands.Commands
+me/name/bot/Commands/Clear.java
+ me.name.bot.Commands.Clear
