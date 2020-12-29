@@ -20,7 +20,7 @@ public class Commands extends ListenerAdapter {
             return;
 
         // break up command into strArray
-        String[] args = event.getMessage().getContentRaw().split(" ");
+        String[] args = event.getMessage().getContentRaw().split("\\s+");
 
         /** !help - embeds an introduction */
         if (args[0].equalsIgnoreCase(Bun.prefix + "help")) {
