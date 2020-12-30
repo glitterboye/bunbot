@@ -39,14 +39,15 @@ public class Prefix extends ListenerAdapter {
 
     public void error_1(MessageReceivedEvent e) {
         EmbedBuilder error = new EmbedBuilder().setTitle("Bun does not like that prefix")
-                .setDescription("try `!prefix help` for more info").setColor(0xf05b5b);
+                .setDescription("try `" + Bun.prefix + "prefix help` for more info").setColor(0xf05b5b);
 
         e.getChannel().sendMessage(error.build()).queue();
     }
 
     public void help(MessageReceivedEvent e) {
-        EmbedBuilder error = new EmbedBuilder().setTitle("The !prefix command").setDescription(
-                "typing `!prefix <p>` allows you to assign Bun a new prefix\n`<p>` must be 3 characters or less")
+        EmbedBuilder error = new EmbedBuilder().setTitle("The " + Bun.prefix + "prefix command")
+                .setDescription("typing `" + Bun.prefix
+                        + "prefix <p>` allows you to assign Bun a new prefix\n`<p>` must be 2 characters or less")
                 .setColor(0x61e885);
 
         e.getChannel().sendMessage(error.build()).queue();

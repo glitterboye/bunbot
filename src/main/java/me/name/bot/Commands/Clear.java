@@ -1,6 +1,7 @@
 package me.name.bot.Commands;
 
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -22,11 +23,20 @@ public class Clear extends ListenerAdapter {
         String[] args = event.getMessage().getContentRaw().split("\\s+");
 
         if (args[0].equalsIgnoreCase(Bun.prefix + "clear")) {
+
+            if (!event.getMember().hasPermission(Permission.MESSAGE_MANAGE)) {
+                EmbedBuilder error = new EmbedBuilder().setTitle("Bun was unable to clear!").setDescription(
+                        "Bun is only allowed to clear messages for those who have the *manage messages* permission")
+                        .setColor(0xf05b5b);
+                event.getChannel().sendMessage(error.build()).queue();
+                return;
+            }
+
             if (args.length < 2) {
                 System.out.println("no number specified");
                 EmbedBuilder error = new EmbedBuilder();
 
-                String title = "Bun didn't receive a number", desc = "Try `!clear help` for more info";
+                String title = "Bun didn't receive a number", desc = "Try `" + Bun.prefix + "clear help` for more info";
 
                 error.setTitle(title).setDescription(desc).setColor(0xf05b5b);
                 event.getChannel().sendMessage(error.build()).queue();
@@ -36,8 +46,8 @@ public class Clear extends ListenerAdapter {
                 if (args[1].equalsIgnoreCase("help")) {
                     EmbedBuilder help = new EmbedBuilder();
 
-                    String title = "The !clear command",
-                            desc = "Typing `!clear <n>` will allow Bun to clear <n> messages in recent history\nBun can clear between 1 and 99 messages";
+                    String title = "The " + Bun.prefix + "clear command", desc = "Typing `" + Bun.prefix
+                            + "clear <n>` will allow Bun to clear `<n>` messages in recent history\n\nBun can clear between 1 and 99 messages\nin order to use this feature, you must have the **manage messages** permission";
 
                     help.setTitle(title).setDescription(desc).setColor(0x61e885);
                     event.getChannel().sendMessage(help.build()).queue();

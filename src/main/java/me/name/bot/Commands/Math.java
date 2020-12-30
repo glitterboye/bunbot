@@ -18,13 +18,13 @@ public class Math extends ListenerAdapter {
         if (args[0].equalsIgnoreCase(Bun.prefix + "math")) {
             if (args.length == 4 || args.length == 2) {
                 if (args[1].equalsIgnoreCase("help")) {
-                    EmbedBuilder help = new EmbedBuilder();
-                    help.setColor(0x61e885);
+                    String title = "🔢 The " + Bun.prefix + "math command",
+                            desc = "Bun is able to do simple calculations\nFollowing `" + Bun.prefix
+                                    + "math`, type a problem in the form: `<A> <operator> <B>`\nAnswers will be rounded to two decimal places",
+                            op1 = "[ +  -  *  /  %  ^ ]";
 
-                    String title = "🔢 The !math command",
-                            desc = "Bun is able to do simple calculations\nFollowing `!math`, type a problem in the form: `<A> <operator> <B>`\nAnswers will be rounded to two decimal places",
-                            foot = "[ +  -  *  /  %  ^ ]";
-                    help.setTitle(title).setDescription(desc).addField("Supported Operators", foot, false);
+                    EmbedBuilder help = new EmbedBuilder().setColor(0x61e885).setTitle(title).setDescription(desc)
+                            .addField("Supported Operators", op1, false);
 
                     event.getChannel().sendMessage(help.build()).queue();
 
@@ -62,7 +62,11 @@ public class Math extends ListenerAdapter {
 
                         embed_answer(event, args, a, b, result);
                     } else {
-                        event.getChannel().sendMessage("Error in code. Entered nested else block");
+                        EmbedBuilder error = new EmbedBuilder().setColor(0xf05b5b).addField("Sorry",
+                                "Bun did not recognize that operator!\nsupported operators [ +  -  *  /  %  ^ ]",
+                                false);
+
+                        event.getChannel().sendMessage(error.build()).queue();
                     }
                 }
             } else {
@@ -76,35 +80,29 @@ public class Math extends ListenerAdapter {
     }
 
     public void error_1(MessageReceivedEvent e) {
-        EmbedBuilder error = new EmbedBuilder();
-        error.setColor(0xf05b5b);
+        String title = "Bun was unable to compute", desc = "Please try `" + Bun.prefix + "math help` for more info!";
 
-        String title = "Bun was unable to compute", desc = "Please try `!math help` for more info!";
-        error.setTitle(title).setDescription(desc);
+        EmbedBuilder error = new EmbedBuilder().setColor(0xf05b5b).setTitle(title).setDescription(desc);
 
         e.getChannel().sendMessage(error.build()).queue();
     }
 
     public void error_2(MessageReceivedEvent e) {
-        EmbedBuilder error = new EmbedBuilder();
-        error.setColor(0xf05b5b);
+        String title = "Bun can only operate on numbers!",
+                desc = "Please try `" + Bun.prefix + "math help` for more info!";
 
-        String title = "Bun can only operate on numbers!", desc = "Please try `!math help` for more info!";
-        error.setTitle(title).setDescription(desc);
+        EmbedBuilder error = new EmbedBuilder().setColor(0xf05b5b).setTitle(title).setDescription(desc);
 
         e.getChannel().sendMessage(error.build()).queue();
     }
 
     public void embed_answer(MessageReceivedEvent e, String[] args, double a, double b, double result) {
-        EmbedBuilder answer = new EmbedBuilder();
-        answer.setColor(0x61e885);
-
         DecimalFormat df = new DecimalFormat("#.##");
 
         String title = "Answer: " + df.format(a) + " " + args[2] + " " + df.format(b) + " = " + df.format(result),
                 desc = "If bun's calculations are incorrect, please let ralf know!";
 
-        answer.setTitle(title).setDescription(desc);
+        EmbedBuilder answer = new EmbedBuilder().setColor(0x61e885).setTitle(title).setDescription(desc);
         e.getChannel().sendMessage(answer.build()).queue();
     }
 }
