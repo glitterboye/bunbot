@@ -29,8 +29,8 @@ public class UserInfo extends ListenerAdapter {
                 if (args[1].equalsIgnoreCase("help")) {
                     EmbedBuilder help = new EmbedBuilder();
 
-                    String title = "👤 The !userinfo command",
-                            desc = "By typing `!userinfo @<user>`, Bun can look up their information!";
+                    String title = "👤 The " + Bun.prefix + "userinfo command",
+                            desc = "By typing `" + Bun.prefix + "userinfo @<user>`, Bun can look up their information!";
 
                     help.setTitle(title).setDescription(desc).setColor(0x61e885);
                     event.getChannel().sendMessage(help.build()).queue();
@@ -71,7 +71,7 @@ public class UserInfo extends ListenerAdapter {
     public void error_1(MessageReceivedEvent e) {
         EmbedBuilder error = new EmbedBuilder();
 
-        String title = "User not found", desc = "see `!userinfo help` for more info";
+        String title = "User not found", desc = "see `" + Bun.prefix + "userinfo help` for more info";
 
         error.setTitle(title).setDescription(desc).setColor(0xf05b5b);
         e.getChannel().sendMessage(error.build()).queue();

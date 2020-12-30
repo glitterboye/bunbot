@@ -15,7 +15,7 @@ public class Quote extends ListenerAdapter {
         if (event.getAuthor().isBot())
             return;
 
-        String[] titles = { "Bun cheers you on!", "Bun uses *inspire* !", "Bun likes quotes!", "Bun dug up a quote!",
+        String[] titles = { "Bun cheers you on!", "Bun uses **inspire**!", "Bun likes quotes!", "Bun dug up a quote!",
                 "Bun believes in you!" };
 
         // break up command into strArray

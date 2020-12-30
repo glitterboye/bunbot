@@ -29,7 +29,8 @@ public class Commands extends ListenerAdapter {
         if (args[1].equalsIgnoreCase("help")) {
             event.getChannel().sendMessage("My owner has not yet implemented this :(").queue();
         } else {
-            event.getChannel().sendMessage("Bun did not detect a valid location. Try `!weather help` for more info");
+            event.getChannel().sendMessage(
+                    "Bun did not detect a valid location. Try `" + Bun.prefix + "weather help` for more info");
         }
     }
 }

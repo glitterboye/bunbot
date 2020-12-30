@@ -27,8 +27,10 @@ public class Roll extends ListenerAdapter {
 
         if (args.length > 1) {
             if (args[1].equalsIgnoreCase("help")) {
-                EmbedBuilder random = new EmbedBuilder().setTitle("Rolling").setDescription(
-                        "by typing `!roll <n>`, bun will return a number from 1 and <n>. typing `!roll` simply returns a number from 1 to 10")
+                EmbedBuilder random = new EmbedBuilder().setTitle("🎲 Rolling command")
+                        .setDescription("by typing `" + Bun.prefix
+                                + "roll <n>`, Bun will return a number from 1 and `<n>`. typing `" + Bun.prefix
+                                + "roll` simply returns a number from 1 to 10")
                         .setColor(0x61e885);
 
                 event.getChannel().sendMessage(random.build()).queue();
