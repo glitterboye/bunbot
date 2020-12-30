@@ -44,7 +44,7 @@ public class Bun {
         bun.getPresence().setActivity(Activity.playing("with my toy carrot"));
 
         bun.addEventListener(new Commands(), new Clear(), new Math(), new UserInfo(), new Prefix(), new ServerInfo(),
-                new Quote(), new Roll(), new Help());
+                new Quote(), new Roll(), new Help(), new CoinFlip());
 
         System.out.println("I finished building!");
     }

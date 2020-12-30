@@ -24,7 +24,6 @@ public class Help extends ListenerAdapter {
             EmbedBuilder help_embed = new EmbedBuilder().setTitle("🥕 Info About Me!").setDescription(desc)
                     .addField("Commands", list_of_commands, false).setColor(0x61e885).setThumbnail(profile);
 
-            event.getChannel().sendTyping().queue();
             event.getChannel().sendMessage(help_embed.build()).queue();
         }
     }
