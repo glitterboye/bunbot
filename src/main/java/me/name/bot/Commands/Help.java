@@ -10,8 +10,9 @@ public class Help extends ListenerAdapter {
         super.onMessageReceived(event);
 
         String ralf = event.getGuild().getOwner().getAsMention();
-        String desc = "hello! i am Bun bot, a bot created by " + ralf + "\n\nmy current prefix is `" + Bun.prefix
-                + "`\nralf is working on implementing my features right now. he'll be updating this message as more and more features get created!",
+        String desc = "hello! i am Bun bot, a bot created by " + ralf
+                + "\nMy goal is to provide quality of life improvements to servers, as well as execute tasks for the sake of convenience. if you'd like to see a feature created, feel free to reach out to my creator! he'll be updating this message as more and more features get created!"
+                + "\n\nmy current prefix is `" + Bun.prefix + "`",
                 list_of_commands = "`greet` `weather` `roll` `clear` `prefix` `userinfo`\n`serverinfo` `quote` `coinflip` ... ",
                 profile = "https://i.imgur.com/5bQQPis.jpg";
 
