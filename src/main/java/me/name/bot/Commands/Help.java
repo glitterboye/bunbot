@@ -12,9 +12,7 @@ public class Help extends ListenerAdapter {
         String ralf = event.getGuild().getOwner().getAsMention();
         String desc = "hello! i am Bun bot, a bot created by " + ralf
                 + "\nMy goal is to provide quality of life improvements to servers, as well as execute tasks for the sake of convenience. if you'd like to see a feature created, feel free to reach out to my creator! he'll be updating this message as more and more features get created!"
-                + "\n\nmy current prefix is `" + Bun.prefix + "`",
-                list_of_commands = "`greet` `weather` `roll` `clear` `prefix` `userinfo`\n`serverinfo` `quote` `coinflip` ... ",
-                profile = "https://i.imgur.com/5bQQPis.jpg";
+                + "\n\nmy current prefix is `" + Bun.prefix + "`", profile = "https://i.imgur.com/5bQQPis.jpg";
 
         if (event.getAuthor().isBot())
             return;
@@ -23,7 +21,10 @@ public class Help extends ListenerAdapter {
 
         if (args[0].equalsIgnoreCase(Bun.prefix + "help")) {
             EmbedBuilder help_embed = new EmbedBuilder().setTitle("🥕 Info About Me!").setDescription(desc)
-                    .addField("Commands", list_of_commands, false).setColor(0x61e885).setThumbnail(profile);
+                    .addField("General", "`greet` `ping`", false)
+                    .addField("Moderation", "`clear` `kick` `ban` `mute`", false)
+                    .addField("Fun", "`coinflip` `roll`", false).addField("Info", "`serverinfo` `userinfo`", false)
+                    .setColor(0x61e885).setThumbnail(profile);
 
             event.getChannel().sendMessage(help_embed.build()).queue();
         }

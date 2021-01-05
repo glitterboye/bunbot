@@ -1,4 +1,4 @@
-package me.name.bot.Commands;
+package me.name.bot.Commands.Info;
 
 import java.time.OffsetDateTime;
 import java.util.List;

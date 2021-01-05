@@ -1,4 +1,4 @@
-package me.name.bot.Commands;
+package me.name.bot.Commands.Fun;
 
 import java.util.Random;
 

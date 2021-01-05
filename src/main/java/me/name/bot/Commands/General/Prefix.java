@@ -1,4 +1,4 @@
-package me.name.bot.Commands;
+package me.name.bot.Commands.General;
 
 import me.name.bot.Bun;
 import net.dv8tion.jda.api.EmbedBuilder;

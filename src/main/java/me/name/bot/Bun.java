@@ -1,7 +1,16 @@
 package me.name.bot;
 
 import me.name.bot.Commands.*;
-import me.name.bot.Commands.Math;
+import me.name.bot.Commands.Fun.CoinFlip;
+import me.name.bot.Commands.Fun.Quote;
+import me.name.bot.Commands.Fun.Roll;
+import me.name.bot.Commands.General.Commands;
+import me.name.bot.Commands.General.Prefix;
+import me.name.bot.Commands.Info.ServerInfo;
+import me.name.bot.Commands.Info.UserInfo;
+import me.name.bot.Commands.General.Math;
+import me.name.bot.Commands.General.Ping;
+import me.name.bot.Commands.Moderation.Clear;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
@@ -44,7 +53,7 @@ public class Bun {
         bun.getPresence().setActivity(Activity.playing("with my toy carrot"));
 
         bun.addEventListener(new Commands(), new Clear(), new Math(), new UserInfo(), new Prefix(), new ServerInfo(),
-                new Quote(), new Roll(), new Help(), new CoinFlip());
+                new Quote(), new Roll(), new Help(), new CoinFlip(), new Ping());
 
         System.out.println("I finished building!");
     }

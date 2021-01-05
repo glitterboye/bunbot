@@ -1,4 +1,4 @@
-package me.name.bot.Commands;
+package me.name.bot.Commands.Moderation;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
